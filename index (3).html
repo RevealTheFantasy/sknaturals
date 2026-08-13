@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SK Naturals Beauty Parlour | Online Beautician &amp; Makeup Course</title>
+<meta name="description" content="Turn your beauty skills into a professional career with SK Naturals Beauty Parlour's Online Beautician & Makeup Course.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<style>
+  :root{
+    --plum:#2b0f1c;
+    --plum-deep:#1c0912;
+    --wine:#6e1428;
+    --wine-light:#8a2036;
+    --gold:#c9a24d;
+    --gold-light:#e6c887;
+    --cream:#faf3e8;
+    --beige:#ecdcc4;
+    --ink:#2b0f1c;
+    --white:#fffdf9;
+    --shadow: 0 20px 50px rgba(43,15,28,0.25);
+    --radius: 4px;
+    --serif: 'Playfair Display', serif;
+    --script: 'Cormorant Garamond', serif;
+    --sans: 'Jost', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  h1,h2,h3,h4{font-family:var(--serif); font-weight:600; line-height:1.15; color:var(--plum);}
+  .eyebrow{
+    font-family: var(--script);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--wine);
+    letter-spacing:0.04em;
+    display:inline-block;
+    margin-bottom:10px;
+  }
+  .section-head{text-align:center; max-width:640px; margin:0 auto 48px;}
+  .section-head h2{font-size:clamp(1.8rem,4vw,2.6rem);}
+  .section-head p{margin-top:14px; color:#6b4a55; font-size:1.02rem; line-height:1.6;}
+
+  .divider{
+    width:120px;height:14px;margin:18px auto 0;
+    background: radial-gradient(ellipse at center, var(--gold-light) 0%, transparent 70%);
+    position:relative;
+  }
+  .divider::before{
+    content:"";
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(45deg);
+    width:8px;height:8px;background:var(--gold);
+  }
+  .divider::after{
+    content:"";
+    position:absolute; left:50%; top:50%; transform:translateY(-50%);
+    width:100px;height:1px; background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold) 80%,transparent);
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:16px 36px;
+    font-size:0.92rem;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    font-weight:500;
+    border-radius:2px;
+    transition: all .35s ease;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .btn-gold{
+    background: linear-gradient(135deg, var(--gold-light), var(--gold) 55%, #a97f34);
+    color: var(--plum-deep);
+    box-shadow: 0 10px 30px rgba(201,162,77,0.35);
+  }
+  .btn-gold:hover{ transform: translateY(-3px); box-shadow: 0 16px 34px rgba(201,162,77,0.5); }
+  .btn-outline{
+    background:transparent;
+    border:1px solid var(--gold);
+    color: var(--cream);
+  }
+  .btn-outline:hover{ background: rgba(201,162,77,0.15); }
+  .btn-wine{
+    background: linear-gradient(135deg, var(--wine-light), var(--wine));
+    color: var(--cream);
+    box-shadow: 0 10px 26px rgba(110,20,40,0.35);
+  }
+  .btn-wine:hover{ transform: translateY(-3px); box-shadow: 0 14px 30px rgba(110,20,40,0.5); }
+  .btn-block{ width:100%; }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{ opacity:0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    background: rgba(43,15,28,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,162,77,0.25);
+    transition: padding .3s ease;
+  }
+  .nav-wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 16px 24px;
+    max-width:1180px; margin:0 auto;
+  }
+  .logo{
+    font-family: var(--serif);
+    color: var(--cream);
+    font-size:1.25rem;
+    letter-spacing:0.03em;
+  }
+  .logo span{ color: var(--gold-light); }
+  .logo small{ display:block; font-family:var(--sans); font-size:0.55rem; letter-spacing:0.28em; color:var(--beige); font-weight:400; margin-top:2px;}
+  nav.desktop-nav{ display:flex; gap:34px; align-items:center; }
+  nav.desktop-nav a{
+    color: var(--beige); font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase;
+    position:relative; padding-bottom:4px;
+  }
+  nav.desktop-nav a::after{
+    content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--gold);
+    transition:width .3s ease;
+  }
+  nav.desktop-nav a:hover::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:18px; }
+  .nav-cta .btn{ padding:12px 24px; font-size:0.78rem; }
+
+  .hamburger{
+    display:none; flex-direction:column; gap:5px; background:none; padding:6px; z-index:1100;
+  }
+  .hamburger span{ width:26px; height:2px; background:var(--gold-light); transition:.3s; }
+  .hamburger.active span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2){ opacity:0; }
+  .hamburger.active span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-nav{
+    position:fixed; top:0; right:-100%; width:78%; max-width:320px; height:100vh;
+    background: linear-gradient(180deg, var(--plum), var(--plum-deep));
+    z-index:1050; padding:100px 32px 40px; transition: right .4s ease;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.4);
+  }
+  .mobile-nav.open{ right:0; }
+  .mobile-nav a{
+    display:block; color: var(--cream); font-family:var(--serif); font-size:1.15rem;
+    padding:16px 0; border-bottom:1px solid rgba(201,162,77,0.15);
+  }
+  .mobile-nav .btn{ margin-top:28px; }
+  .overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1040;
+    opacity:0; pointer-events:none; transition:opacity .4s ease;
+  }
+  .overlay.show{ opacity:1; pointer-events:auto; }
+
+  @media(max-width:900px){
+    nav.desktop-nav, .nav-cta{ display:none; }
+    .hamburger{ display:flex; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; align-items:center;
+    background: linear-gradient(155deg, var(--plum-deep) 0%, var(--plum) 45%, var(--wine) 130%);
+    padding: 140px 0 80px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: radial-gradient(circle at 15% 25%, rgba(201,162,77,0.12), transparent 40%),
+                       radial-gradient(circle at 85% 75%, rgba(201,162,77,0.10), transparent 45%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.05fr 0.95fr; gap:56px; align-items:center;
+    position:relative; z-index:2;
+  }
+  .hero-copy .eyebrow{ color: var(--gold-light); }
+  .hero-copy h1{
+    color: var(--cream);
+    font-size: clamp(2.3rem, 5vw, 3.6rem);
+    margin-bottom:22px;
+  }
+  .hero-copy h1 em{ font-style:italic; color: var(--gold-light); font-family:var(--script); font-weight:500; }
+  .hero-copy p.lead{
+    color: var(--beige); font-size:1.08rem; line-height:1.75; max-width:520px; margin-bottom:32px;
+  }
+  .hero-badges{ display:flex; gap:28px; margin-top:36px; flex-wrap:wrap; }
+  .hero-badges div{ color:var(--beige); font-size:0.82rem; display:flex; align-items:center; gap:8px; }
+  .hero-badges .dot{ width:6px;height:6px;border-radius:50%;background:var(--gold); }
+
+  .hero-media{ position:relative; }
+  .hero-media .frame{
+    position:relative; border-radius:6px; overflow:hidden;
+    border: 1px solid rgba(201,162,77,0.4);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+  }
+  .hero-media img{ width:100%; height:560px; object-fit:cover; }
+  .hero-media .corner-tl, .hero-media .corner-br{
+    position:absolute; width:70px; height:70px; border:1px solid var(--gold);
+  }
+  .hero-media .corner-tl{ top:-16px; left:-16px; border-right:none; border-bottom:none; }
+  .hero-media .corner-br{ bottom:-16px; right:-16px; border-left:none; border-top:none; }
+  .floating-tag{
+    position:absolute; bottom:26px; left:-26px;
+    background: var(--cream); padding:18px 22px; border-radius:4px;
+    box-shadow: var(--shadow);
+    display:flex; align-items:center; gap:14px;
+    max-width:230px;
+  }
+  .floating-tag .num{ font-family:var(--serif); font-size:1.7rem; color:var(--wine); }
+  .floating-tag .txt{ font-size:0.75rem; color:#6b4a55; line-height:1.4; }
+
+  @media(max-width:960px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-media{ order:-1; }
+    .hero-media img{ height:380px; }
+    .floating-tag{ left:12px; bottom:-20px; }
+  }
+
+  /* ---------- OFFER STRIP ---------- */
+  .offer{
+    background: linear-gradient(120deg, var(--wine), var(--wine-light));
+    padding:70px 0;
+    position:relative;
+  }
+  .offer-card{
+    background: var(--cream);
+    border-radius:8px;
+    padding:44px;
+    display:grid; grid-template-columns: 1.3fr 1fr; gap:40px; align-items:center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    border: 1px solid var(--beige);
+  }
+  .offer-left h2{ font-size: clamp(1.6rem,3.4vw,2.1rem); margin-bottom:12px; }
+  .offer-left p{ color:#6b4a55; line-height:1.7; margin-bottom:18px; }
+  .offer-features{ display:flex; flex-wrap:wrap; gap:10px 20px; }
+  .offer-features li{ font-size:0.85rem; color:var(--wine); display:flex; gap:8px; align-items:center; }
+  .offer-features li::before{ content:"✓"; color:var(--gold); font-weight:700; }
+
+  .offer-right{
+    text-align:center; background:var(--plum); border-radius:6px; padding:32px 24px;
+    border:1px solid rgba(201,162,77,0.4);
+  }
+  .price-original{ color:#c79bab; text-decoration:line-through; font-size:1.1rem; }
+  .price-offer{ color:var(--gold-light); font-family:var(--serif); font-size:2.6rem; margin:6px 0 4px; }
+  .price-save{ display:inline-block; background:var(--gold); color:var(--plum-deep); font-size:0.72rem; padding:4px 12px; border-radius:20px; letter-spacing:0.05em; margin-bottom:20px; font-weight:600;}
+  .offer-right .btn{ width:100%; }
+  .offer-note{ margin-top:14px; font-size:0.72rem; color:var(--beige); }
+
+  @media(max-width:800px){
+    .offer-card{ grid-template-columns:1fr; padding:30px 22px; }
+  }
+
+  /* ---------- WHY CHOOSE US ---------- */
+  .why{ padding:100px 0; background:var(--cream); }
+  .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .why-card{
+    background: var(--white);
+    border:1px solid var(--beige);
+    border-radius:6px;
+    padding:34px 26px;
+    text-align:left;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    position:relative;
+  }
+  .why-card:hover{ transform: translateY(-8px); box-shadow: var(--shadow); border-color:var(--gold); }
+  .why-icon{
+    width:52px;height:52px; border-radius:50%;
+    background: linear-gradient(135deg, var(--beige), var(--cream));
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px; font-size:1.4rem; color:var(--wine);
+    border:1px solid var(--gold-light);
+  }
+  .why-card h3{ font-size:1.15rem; margin-bottom:10px; }
+  .why-card p{ font-size:0.9rem; color:#6b4a55; line-height:1.6; }
+
+  @media(max-width:900px){ .why-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:560px){ .why-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- CURRICULUM ---------- */
+  .curriculum{ padding:100px 0; background: var(--plum-deep); position:relative; }
+  .curriculum::before{
+    content:""; position:absolute; inset:0;
+    background: radial-gradient(circle at 80% 10%, rgba(201,162,77,0.08), transparent 40%);
+  }
+  .curriculum .section-head h2{ color:var(--cream); }
+  .curriculum .section-head p{ color:var(--beige); }
+  .curriculum .eyebrow{ color:var(--gold-light); }
+
+  .accordion{ max-width:820px; margin:0 auto; position:relative; z-index:1; }
+  .acc-item{
+    background: rgba(250,243,232,0.04);
+    border:1px solid rgba(201,162,77,0.25);
+    border-radius:5px;
+    margin-bottom:14px;
+    overflow:hidden;
+  }
+  .acc-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 26px; cursor:pointer;
+    color:var(--cream);
+  }
+  .acc-head .mod-num{ font-family:var(--serif); color:var(--gold-light); margin-right:16px; font-size:1rem; }
+  .acc-head .mod-title{ display:flex; align-items:center; font-family:var(--serif); font-size:1.08rem; flex:1; }
+  .acc-head .plus{
+    width:28px;height:28px; border:1px solid var(--gold); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--gold-light);
+    font-size:1.1rem; flex-shrink:0; transition: transform .35s ease;
+  }
+  .acc-item.open .plus{ transform: rotate(135deg); }
+  .acc-body{
+    max-height:0; overflow:hidden; transition: max-height .4s ease;
+  }
+  .acc-body-inner{ padding: 0 26px 24px 66px; }
+  .acc-body-inner ul{ display:flex; flex-direction:column; gap:8px; }
+  .acc-body-inner li{ color:var(--beige); font-size:0.9rem; display:flex; gap:10px; }
+  .acc-body-inner li::before{ content:"—"; color:var(--gold); }
+
+  /* ---------- WHO IT'S FOR ---------- */
+  .audience{ padding:100px 0; background:var(--cream); }
+  .audience-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+  .audience-card{
+    text-align:center; padding:30px 16px; background:var(--white);
+    border:1px solid var(--beige); border-radius:6px;
+    transition: transform .3s ease;
+  }
+  .audience-card:hover{ transform: translateY(-6px); border-color:var(--gold); }
+  .audience-card .ic{ font-size:1.8rem; margin-bottom:12px; }
+  .audience-card h4{ font-size:0.95rem; color:var(--wine); font-family:var(--serif); }
+  @media(max-width:900px){ .audience-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media(max-width:560px){ .audience-grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .how{ padding:100px 0; background: linear-gradient(180deg, var(--beige), var(--cream)); }
+  .how-track{ display:flex; justify-content:space-between; position:relative; gap:20px; flex-wrap:wrap; }
+  .how-track::before{
+    content:""; position:absolute; top:34px; left:6%; right:6%; height:1px;
+    background: repeating-linear-gradient(90deg, var(--gold) 0 8px, transparent 8px 16px);
+    z-index:0;
+  }
+  .how-step{ flex:1; min-width:150px; text-align:center; position:relative; z-index:1; }
+  .how-step .circle{
+    width:68px;height:68px; border-radius:50%; margin:0 auto 16px;
+    background: var(--wine); color:var(--cream); display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-size:1.4rem; border:3px solid var(--cream);
+    box-shadow: 0 8px 20px rgba(110,20,40,0.3);
+  }
+  .how-step h4{ font-family:var(--serif); color:var(--plum); font-size:1.05rem; margin-bottom:6px; }
+  .how-step p{ font-size:0.82rem; color:#6b4a55; }
+  @media(max-width:700px){ .how-track::before{ display:none; } .how-track{ flex-direction:column; } }
+
+  /* ---------- COURSE DETAILS ---------- */
+  .details{ padding:100px 0; background:var(--cream); }
+  .details-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .detail-card{
+    background:var(--white); border:1px solid var(--beige); border-radius:6px; padding:28px 22px; text-align:center;
+  }
+  .detail-card .lbl{ font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--wine); margin-bottom:10px; }
+  .detail-card .val{ font-family:var(--serif); font-size:1.2rem; color:var(--plum); }
+  @media(max-width:800px){ .details-grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- INSTRUCTOR ---------- */
+  .instructor{ padding:100px 0; background: var(--plum); }
+  .instructor-grid{ display:grid; grid-template-columns: 0.8fr 1.2fr; gap:50px; align-items:center; }
+  .instructor-media{ position:relative; }
+  .instructor-media img{ border-radius:6px; width:100%; height:420px; object-fit:cover; border:1px solid rgba(201,162,77,0.4); }
+  .instructor-copy .eyebrow{ color:var(--gold-light); }
+  .instructor-copy h2{ color:var(--cream); font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:6px; }
+  .instructor-copy .role{ color:var(--gold-light); font-family:var(--script); font-style:italic; font-size:1.15rem; margin-bottom:18px; display:block; }
+  .instructor-copy p{ color:var(--beige); line-height:1.8; margin-bottom:14px; font-size:0.96rem; }
+  .instructor-copy .placeholder-note{ font-size:0.75rem; color:#b78a9a; border-left:2px solid var(--gold); padding-left:12px; margin-top:20px; }
+  @media(max-width:860px){ .instructor-grid{ grid-template-columns:1fr; } .instructor-media img{ height:320px; } }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{ padding:100px 0; background:var(--cream); }
+  .test-track{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .test-card{
+    background:var(--white); border:1px solid var(--beige); border-radius:6px; padding:30px 26px; position:relative;
+  }
+  .test-card .quote-mark{ font-family:var(--serif); font-size:3rem; color:var(--gold-light); line-height:1; }
+  .test-card p{ color:#5a3d47; font-size:0.92rem; line-height:1.7; margin:10px 0 18px; }
+  .test-person{ display:flex; align-items:center; gap:12px; }
+  .test-person .avatar{
+    width:42px; height:42px; border-radius:50%; background:var(--beige); display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); color:var(--wine); font-size:1rem;
+  }
+  .test-person .name{ font-size:0.88rem; font-weight:600; color:var(--plum); }
+  .test-person .tag{ font-size:0.72rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.05em; }
+  .placeholder-flag{
+    position:absolute; top:14px; right:14px; background:var(--wine); color:var(--cream); font-size:0.6rem;
+    padding:3px 9px; border-radius:10px; letter-spacing:0.05em; text-transform:uppercase;
+  }
+  @media(max-width:900px){ .test-track{ grid-template-columns:1fr; } }
+
+  /* ---------- PRICING FINAL ---------- */
+  .pricing-final{
+    padding:110px 0; text-align:center;
+    background: linear-gradient(160deg, var(--wine), var(--plum-deep));
+    position:relative; overflow:hidden;
+  }
+  .pricing-final::after{
+    content:""; position:absolute; width:500px;height:500px; border-radius:50%;
+    background: radial-gradient(circle, rgba(201,162,77,0.15), transparent 70%);
+    top:-200px; right:-150px;
+  }
+  .pricing-box{
+    position:relative; z-index:1; max-width:520px; margin:0 auto;
+    background: rgba(250,243,232,0.06); border:1px solid rgba(201,162,77,0.4);
+    border-radius:10px; padding:50px 36px; backdrop-filter: blur(6px);
+  }
+  .pricing-box h2{ color:var(--cream); font-size:clamp(1.6rem,3.4vw,2.3rem); margin-bottom:8px; }
+  .pricing-box .price-offer{ font-size:3rem; }
+  .pricing-box .price-original{ font-size:1.2rem; }
+  .pricing-box p.sub{ color:var(--beige); margin-bottom:26px; }
+
+  /* ---------- FAQ ---------- */
+  .faq{ padding:100px 0; background:var(--cream); }
+  .faq-list{ max-width:760px; margin:0 auto; }
+  .faq-item{ border-bottom:1px solid var(--beige); }
+  .faq-q{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 4px; cursor:pointer; font-family:var(--serif); color:var(--plum); font-size:1.02rem;
+  }
+  .faq-q .plus{
+    width:26px;height:26px; border:1px solid var(--wine); border-radius:50%; color:var(--wine);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-left:16px;
+    transition: transform .35s ease;
+  }
+  .faq-item.open .plus{ transform:rotate(135deg); background:var(--wine); color:var(--cream); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .faq-a p{ padding:0 4px 22px; color:#6b4a55; font-size:0.92rem; line-height:1.7; max-width:640px; }
+
+  /* ---------- CONTACT ---------- */
+  .contact{ padding:100px 0; background: var(--plum-deep); }
+  .contact .section-head h2{ color:var(--cream); }
+  .contact .section-head p{ color:var(--beige); }
+  .contact-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; max-width:960px; margin:0 auto; }
+  .contact-card{
+    background: rgba(250,243,232,0.04); border:1px solid rgba(201,162,77,0.25); border-radius:6px;
+    padding:30px 20px; text-align:center; transition: transform .3s ease, border-color .3s ease;
+  }
+  .contact-card:hover{ transform:translateY(-6px); border-color:var(--gold); }
+  .contact-card .ic{ font-size:1.6rem; margin-bottom:12px; }
+  .contact-card .lbl{ color:var(--gold-light); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px; }
+  .contact-card .val{ color:var(--cream); font-size:0.92rem; word-break:break-word; }
+  @media(max-width:800px){ .contact-grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background: var(--plum-deep); border-top:1px solid rgba(201,162,77,0.2); padding:44px 0 100px; }
+  .footer-inner{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:center; }
+  .footer-logo{ font-family:var(--serif); color:var(--cream); font-size:1.1rem; }
+  .footer-logo span{ color:var(--gold-light); }
+  .footer-links{ display:flex; gap:24px; flex-wrap:wrap; }
+  .footer-links a{ color:var(--beige); font-size:0.82rem; }
+  .footer-links a:hover{ color:var(--gold-light); }
+  .footer-copy{ color:#8a6a75; font-size:0.75rem; width:100%; text-align:center; margin-top:24px; border-top:1px solid rgba(201,162,77,0.12); padding-top:20px; }
+
+  /* ---------- STICKY MOBILE CTA ---------- */
+  .sticky-cta{
+    position:fixed; bottom:0; left:0; right:0; z-index:900;
+    background: linear-gradient(90deg, var(--plum-deep), var(--wine));
+    padding:14px 20px; display:none; align-items:center; justify-content:space-between; gap:14px;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+    border-top:1px solid var(--gold);
+  }
+  .sticky-cta .info{ color:var(--cream); }
+  .sticky-cta .info .p1{ font-size:0.68rem; color:var(--beige); text-transform:uppercase; letter-spacing:0.05em;}
+  .sticky-cta .info .p2{ font-family:var(--serif); color:var(--gold-light); font-size:1.15rem; }
+  .sticky-cta .btn{ padding:12px 20px; font-size:0.75rem; flex-shrink:0; }
+  @media(max-width:760px){ .sticky-cta{ display:flex; } body{ padding-bottom:78px; } }
+
+  /* ---------- MODAL ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(28,9,18,0.75); z-index:2000;
+    display:none; align-items:center; justify-content:center; padding:20px;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.show{ display:flex; }
+  .modal-box{
+    background: var(--cream); border-radius:8px; max-width:440px; width:100%;
+    padding:40px 32px; position:relative; box-shadow: 0 40px 90px rgba(0,0,0,0.5);
+    border: 1px solid var(--gold-light);
+    max-height:90vh; overflow-y:auto;
+  }
+  .modal-close{
+    position:absolute; top:16px; right:16px; width:34px;height:34px; border-radius:50%;
+    background:var(--beige); color:var(--wine); font-size:1.1rem; display:flex; align-items:center; justify-content:center;
+  }
+  .modal-box .eyebrow{ display:block; text-align:center; }
+  .modal-box h3{ text-align:center; font-size:1.5rem; margin-bottom:6px; }
+  .modal-box p.sub{ text-align:center; color:#6b4a55; font-size:0.88rem; margin-bottom:26px; }
+  .form-group{ margin-bottom:18px; }
+  .form-group label{ display:block; font-size:0.78rem; color:var(--wine); margin-bottom:6px; text-transform:uppercase; letter-spacing:0.05em; }
+  .form-group input{
+    width:100%; padding:13px 14px; border:1px solid var(--beige); border-radius:4px;
+    background:var(--white); font-family:var(--sans); font-size:0.95rem; color:var(--ink);
+  }
+  .form-group input:focus{ outline:2px solid var(--gold); border-color:var(--gold); }
+  .modal-price-row{
+    display:flex; justify-content:space-between; align-items:center; background:var(--beige);
+    padding:14px 18px; border-radius:5px; margin-bottom:22px;
+  }
+  .modal-price-row .l{ font-size:0.8rem; color:var(--wine); }
+  .modal-price-row .r{ font-family:var(--serif); color:var(--plum); font-size:1.2rem; }
+  .modal-note{ text-align:center; font-size:0.7rem; color:#8a6a75; margin-top:14px; }
+  .modal-error{
+    margin-top:14px; background:#fbe4e4; border:1px solid #d98b8b; color:#7a2222;
+    font-size:0.8rem; padding:10px 14px; border-radius:4px; text-align:center;
+  }
+  .btn[disabled]{ opacity:0.6; cursor:not-allowed; transform:none !important; }
+  .form-success{ display:none; text-align:center; padding:20px 0; }
+  .form-success.show{ display:block; }
+  .form-success .tick{ font-size:2.4rem; color:var(--gold); margin-bottom:14px; }
+
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible, input:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="nav-wrap">
+    <a href="#hero" class="logo">SK <span>Naturals</span><small>BEAUTY PARLOUR &amp; ACADEMY</small></a>
+    <nav class="desktop-nav">
+      <a href="#course">Course</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#instructor">Instructor</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#pricing" class="btn btn-gold" id="navJoinBtn">Join The Course</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="overlay" id="overlay"></div>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#course">Course</a>
+  <a href="#curriculum">Curriculum</a>
+  <a href="#instructor">Instructor</a>
+  <a href="#testimonials">Reviews</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <a href="#pricing" class="btn btn-gold btn-block" id="mobileJoinBtn">Join The Course</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal in">
+      <span class="eyebrow">SK Naturals Beauty Parlour, Chennai</span>
+      <h1>Turn Your Beauty Skills Into a <em>Professional Career</em></h1>
+      <p class="lead">Learn professional makeup and beautician techniques from home, at your own pace — with step-by-step video training, practical guidance and real support from experienced beauty educators.</p>
+      <a href="#pricing" class="btn btn-gold open-modal-trigger">Join The Course</a>
+      <div class="hero-badges">
+        <div><span class="dot"></span> 100% Online Learning</div>
+        <div><span class="dot"></span> Beginner Friendly</div>
+        <div><span class="dot"></span> Certificate on Completion</div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="frame">
+        <span class="corner-tl"></span>
+        <img src="https://media.istockphoto.com/id/1384890627/photo/female-makeup-artist-doing-makeup-on-woman-in-beauty-salon.jpg?s=612x612&w=0&k=20&c=AV9PoRCiko1L6BOReTO7Txf_AINIngga6U1LFQIKZfk=" alt="Professional makeup artist applying luxury makeup look">
+        <span class="corner-br"></span>
+      </div>
+      <div class="floating-tag">
+        <div class="num">6+</div>
+        <div class="txt">Full modules covering beauty &amp; makeup from basics to bridal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OFFER ============ -->
+<section class="offer" id="course">
+  <div class="container">
+    <div class="offer-card reveal">
+      <div class="offer-left">
+        <span class="eyebrow">Flagship Program</span>
+        <h2 id="offerCourseName">Online Beautician &amp; Makeup Course</h2>
+        <p>A complete, guided course designed to take you from beginner to confident beautician — covering skincare, makeup application, bridal looks, hairstyling and professional beauty business skills.</p>
+        <ul class="offer-features">
+          <li>Lifetime Access</li>
+          <li>Certificate Included</li>
+          <li>Mobile Friendly</li>
+          <li>Tamil &amp; English Support</li>
+        </ul>
+      </div>
+      <div class="offer-right">
+        <div class="price-original" id="offerOriginalPrice">₹9,999</div>
+        <div class="price-offer" id="offerPrice">₹2,999</div>
+        <span class="price-save">Limited Time Offer</span>
+        <a href="#pricing" class="btn btn-gold btn-block open-modal-trigger">Enroll Now</a>
+        <div class="offer-note">Secure your seat — offer valid for a limited time</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Students Choose Us</span>
+      <h2>Learning Made Simple &amp; Rewarding</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon">✿</div><h3>Beginner Friendly</h3><p>No prior experience needed — every lesson starts from the fundamentals and builds up gradually.</p></div>
+      <div class="why-card reveal"><div class="why-icon">⌂</div><h3>Learn From Home</h3><p>Attend classes and practice techniques from the comfort of your home, at a pace that suits you.</p></div>
+      <div class="why-card reveal"><div class="why-icon">✦</div><h3>Professional Techniques</h3><p>Learn methods used by working beauticians and makeup artists, taught in a clear, structured way.</p></div>
+      <div class="why-card reveal"><div class="why-icon">✎</div><h3>Practical Training</h3><p>Hands-on assignments and practice tasks so you actually apply what you learn, not just watch.</p></div>
+      <div class="why-card reveal"><div class="why-icon">➵</div><h3>Step-by-Step Learning</h3><p>Every module is broken into simple, sequential lessons so you never feel lost or overwhelmed.</p></div>
+      <div class="why-card reveal"><div class="why-icon">♥</div><h3>Student Support</h3><p>Get guidance and doubt-clearing support throughout the course from our team.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CURRICULUM ============ -->
+<section class="curriculum" id="curriculum">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Course Curriculum</span>
+      <h2>Everything You'll Learn</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="accordion" id="accordion">
+      <!-- items injected by JS using CONFIG.curriculum -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO IT'S FOR ============ -->
+<section class="audience" id="audience">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Who This Course Is For</span>
+      <h2>Made For Every Aspiring Beautician</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card reveal"><div class="ic">🌸</div><h4>Beginners</h4></div>
+      <div class="audience-card reveal"><div class="ic">🎓</div><h4>Students</h4></div>
+      <div class="audience-card reveal"><div class="ic">🏠</div><h4>Homemakers</h4></div>
+      <div class="audience-card reveal"><div class="ic">💼</div><h4>Aspiring Beauticians</h4></div>
+      <div class="audience-card reveal"><div class="ic">💄</div><h4>Makeup Enthusiasts</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Getting Started Is Easy</span>
+      <h2>How It Works</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="how-track">
+      <div class="how-step reveal"><div class="circle">1</div><h4>Register</h4><p>Fill in your details to reserve your seat.</p></div>
+      <div class="how-step reveal"><div class="circle">2</div><h4>Pay</h4><p>Complete your enrollment payment securely.</p></div>
+      <div class="how-step reveal"><div class="circle">3</div><h4>Get Access</h4><p>Receive your login &amp; course materials.</p></div>
+      <div class="how-step reveal"><div class="circle">4</div><h4>Start Learning</h4><p>Begin your journey to becoming a beautician.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COURSE DETAILS ============ -->
+<section class="details" id="details">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Course Details</span>
+      <h2>Key Information</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="details-grid">
+      <div class="detail-card reveal"><div class="lbl">Start Date</div><div class="val" id="detailDate">-</div></div>
+      <div class="detail-card reveal"><div class="lbl">Timing</div><div class="val" id="detailTime">-</div></div>
+      <div class="detail-card reveal"><div class="lbl">Duration</div><div class="val" id="detailDuration">-</div></div>
+      <div class="detail-card reveal"><div class="lbl">Format</div><div class="val">Online Tamil</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTRUCTOR ============ -->
+<section class="instructor" id="instructor">
+  <div class="container instructor-grid">
+    <div class="instructor-media reveal">
+      <img src="https://images.unsplash.com/photo-1709477542170-f11ee7d471a0?q=80&w=800&auto=format&fit=crop" alt="Beauty course instructor portrait placeholder">
+    </div>
+    <div class="instructor-copy reveal">
+      <span class="eyebrow">Meet Your Instructor</span>
+      <h2>Sarala</h2>
+      <span class="role">Makeup Artist</span>
+      <p>About Your Instructor
+
+Learn from an experienced beauty professional with a passion for helping aspiring beauticians build practical skills and confidence. With hands-on experience in beauty, makeup, skincare, and salon techniques, the course focuses on teaching real-world methods in a simple, easy-to-follow way.
+
+The training is designed for beginners as well as learners who want to improve their existing skills. Lessons are explained step by step, with a strong focus on practical techniques, professional standards, and the skills needed to confidently pursue opportunities in the beauty industry.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Student Stories</span>
+      <h2>What Our Students Say</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="test-track">
+      <div class="test-card reveal">
+        <span class="placeholder-flag">Placeholder</span>
+        <div class="quote-mark">"</div>
+        <p>I'm so happy I joined this course! The lessons were explained clearly and step by step, which made it easy for me to understand and practice. I learned new beauty techniques and feel much more confident in my skills now. Definitely a great course for anyone who wants to learn beautician skills from the basics!</p>
+        <div class="test-person"><div class="avatar">S</div><div><div class="name">Priya</div><div class="tag">Chennai</div></div></div>
+      </div>
+      <div class="test-card reveal">
+        <span class="placeholder-flag">Placeholder</span>
+        <div class="quote-mark">"</div>
+        <p>This course was a wonderful learning experience. Everything was explained in a simple and practical way, even for someone starting from the basics. I really enjoyed the classes and gained a lot more confidence in my beauty skills. I would definitely recommend this course to anyone interested in becoming a professional beautician.</p>
+        <div class="test-person"><div class="avatar">P</div><div><div class="name">Divya</div><div class="tag">Chennai</div></div></div>
+      </div>
+      <div class="test-card reveal">
+        <span class="placeholder-flag">Placeholder</span>
+        <div class="quote-mark">"</div>
+        <p>The course was easy to follow and very practical. I learned techniques that I can actually use in my work, and the step-by-step teaching made everything much easier to understand. I am really happy with what I learned and would recommend this course to anyone who wants to improve their beauty skills.</p>
+        <div class="test-person"><div class="avatar">R</div><div><div class="name">Anitha</div><div class="tag">Chennai</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING FINAL CTA ============ -->
+<section class="pricing-final" id="pricing">
+  <div class="container">
+    <div class="pricing-box reveal">
+      <span class="eyebrow" style="color:var(--gold-light)">Start Your Beauty Career Today</span>
+      <h2 id="finalCourseName">Online Saree Pre-Pleating Course</h2>
+      <div class="price-original" id="finalOriginalPrice">₹1,000</div>
+      <div class="price-offer" id="finalOfferPrice">₹99</div>
+      <p class="sub">Seats are limited for this batch — enroll now and get instant access.</p>
+      <a href="#" class="btn btn-gold open-modal-trigger">Join The Course Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Have Questions?</span>
+      <h2>Frequently Asked Questions</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list" id="faqList">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>We're Here To Help</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card reveal" id="contactPhone" href="#"><div class="ic">📞</div><div class="lbl">Call Us</div><div class="val">-</div></a>
+      <a class="contact-card reveal" id="contactWhatsapp" href="#" target="_blank"><div class="ic">💬</div><div class="lbl">WhatsApp</div><div class="val">-</div></a>
+      <a class="contact-card reveal" id="contactInstagram" href="#" target="_blank"><div class="ic">📷</div><div class="lbl">Instagram</div><div class="val">-</div></a>
+      <a class="contact-card reveal" id="contactEmail" href="#"><div class="ic">✉</div><div class="lbl">Email</div><div class="val">-</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">SK <span>Naturals</span> Beauty Parlour</div>
+    <div class="footer-links">
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms &amp; Conditions</a>
+      <a href="#refund">Refund Policy</a>
+    </div>
+    <div class="footer-copy" id="footerCopy">© 2026 SK Naturals Beauty Parlour. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="sticky-cta">
+  <div class="info">
+    <div class="p1">Limited Time Offer</div>
+    <div class="p2" id="stickyPrice">₹99</div>
+  </div>
+  <a href="#" class="btn btn-gold open-modal-trigger">Join The Course</a>
+</div>
+
+<!-- ============ ENROLLMENT MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+
+    <div id="formView">
+      <span class="eyebrow">Secure Your Seat</span>
+      <h3>Enroll Now</h3>
+      <p class="sub">Fill in your details — our team will confirm your enrollment.</p>
+
+      <div class="modal-price-row">
+        <span class="l" id="modalCourseName">Online Saree Pre-Pleating Course</span>
+        <span class="r" id="modalPrice">₹99</span>
+      </div>
+
+      <form id="enrollForm">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="phoneNum">Phone Number</label>
+          <input type="tel" id="phoneNum" name="phoneNum" placeholder="Enter your phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="emailAddr">Email Address</label>
+          <input type="email" id="emailAddr" name="emailAddr" placeholder="Enter your email" required>
+        </div>
+        <button type="submit" class="btn btn-wine btn-block" id="payBtn">Proceed to Payment</button>
+        <div class="modal-note">Payments are processed securely via Razorpay.</div>
+        <div class="modal-error" id="modalError" style="display:none;"></div>
+      </form>
+    </div>
+
+    <div class="form-success" id="formSuccess">
+      <div class="tick">✓</div>
+      <h3>Details Received!</h3>
+      <p class="sub">Thank you! Our team will reach out shortly to confirm your enrollment and share payment details.</p>
+      <button class="btn btn-gold btn-block" id="successClose">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   CONFIG — edit these values to update the whole website
+========================================================= */
+const CONFIG = {
+  businessName: "SK Naturals Beauty Parlour",
+  courseName: "Online Beautician & Makeup Course",
+  coursePrice: "₹99",
+  originalPrice: "₹1,000",
+  courseDate: "23rd Of August, Sunday",
+  courseTime: "11:00 AM – 02:00 PM IST",
+  courseDuration: "3 hours (Self-Paced + Live Sessions)",
+  phone: "+91 97906 80753",
+  whatsapp: "+91 97906 80753",
+  instagram: "@sk_naturals_beauty_parlour",
+  email: "saralanawin@gmail.com",
+
+  curriculum: [
+    { title: "Beauty Basics", points: ["Skin types & analysis","Skincare fundamentals","Facial treatments intro","Hygiene & tools"] },
+    { title: "Makeup Fundamentals", points: ["Face priming & base makeup","Foundation matching & application","Contouring & highlighting","Setting techniques"] },
+    { title: "Eye Makeup", points: ["Eyeshadow blending basics","Eyeliner styles","Lash application","Day & night eye looks"] },
+    { title: "Bridal & Occasion Makeup", points: ["Bridal look planning","Long-lasting makeup techniques","Party & festive makeup","Client consultation basics"] },
+    { title: "Hairstyling", points: ["Basic hairstyling tools","Everyday hairstyles","Bridal & party hairstyles","Hair accessories & finishing"] },
+    { title: "Professional Beauty Skills", points: ["Client handling & communication","Kit essentials for beauticians","Portfolio building basics","Getting started professionally"] }
+  ],
+
+  faqs: [
+    { q: "Do I need any prior experience to join?", a: "No prior experience is needed. The course is designed for absolute beginners and builds up step by step." },
+    { q: "Is this course fully online?", a: "Yes, the entire course is delivered online so you can learn from the comfort of your home." },
+    { q: "Will I get a certificate after completing the course?", a: "Yes, a certificate of completion is provided once you finish the course." },
+    { q: "What language is the course taught in?", a: "The course is taught with support in both Tamil and English." },
+    { q: "How long do I have access to the course material?", a: "You get lifetime access to the course materials once enrolled." },
+    { q: "How do I make the payment?", a: "Payment can be made securely online after registration. Our payment gateway integration is being finalized." }
+  ]
+};
+
+/* =========================================================
+   POPULATE CONTENT FROM CONFIG
+========================================================= */
+document.getElementById('offerCourseName').textContent = CONFIG.courseName;
+document.getElementById('offerOriginalPrice').textContent = CONFIG.originalPrice;
+document.getElementById('offerPrice').textContent = CONFIG.coursePrice;
+document.getElementById('finalCourseName').textContent = CONFIG.courseName;
+document.getElementById('finalOriginalPrice').textContent = CONFIG.originalPrice;
+document.getElementById('finalOfferPrice').textContent = CONFIG.coursePrice;
+document.getElementById('modalCourseName').textContent = CONFIG.courseName;
+document.getElementById('modalPrice').textContent = CONFIG.coursePrice;
+document.getElementById('stickyPrice').textContent = CONFIG.coursePrice;
+
+document.getElementById('detailDate').textContent = CONFIG.courseDate;
+document.getElementById('detailTime').textContent = CONFIG.courseTime;
+document.getElementById('detailDuration').textContent = CONFIG.courseDuration;
+
+const contactPhone = document.getElementById('contactPhone');
+contactPhone.href = "tel:" + CONFIG.phone.replace(/\s+/g,'');
+contactPhone.querySelector('.val').textContent = CONFIG.phone;
+
+const contactWhatsapp = document.getElementById('contactWhatsapp');
+contactWhatsapp.href = "https://wa.me/" + CONFIG.whatsapp.replace(/[^\d]/g,'');
+contactWhatsapp.querySelector('.val').textContent = CONFIG.whatsapp;
+
+const contactInstagram = document.getElementById('contactInstagram');
+contactInstagram.href = "https://instagram.com/" + CONFIG.instagram.replace('@','');
+contactInstagram.querySelector('.val').textContent = CONFIG.instagram;
+
+const contactEmail = document.getElementById('contactEmail');
+contactEmail.href = "mailto:" + CONFIG.email;
+contactEmail.querySelector('.val').textContent = CONFIG.email;
+
+document.getElementById('footerCopy').textContent = "© " + new Date().getFullYear() + " " + CONFIG.businessName + ". All rights reserved.";
+
+/* Curriculum accordion build */
+const accordionEl = document.getElementById('accordion');
+CONFIG.curriculum.forEach((mod, i) => {
+  const item = document.createElement('div');
+  item.className = 'acc-item';
+  item.innerHTML = `
+    <div class="acc-head">
+      <div class="mod-title"><span class="mod-num">0${i+1}</span>${mod.title}</div>
+      <div class="plus">+</div>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner"><ul>${mod.points.map(p => `<li>${p}</li>`).join('')}</ul></div>
+    </div>`;
+  accordionEl.appendChild(item);
+
+  const head = item.querySelector('.acc-head');
+  const body = item.querySelector('.acc-body');
+  head.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    accordionEl.querySelectorAll('.acc-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.acc-body').style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  });
+});
+
+/* FAQ accordion build */
+const faqListEl = document.getElementById('faqList');
+CONFIG.faqs.forEach(f => {
+  const item = document.createElement('div');
+  item.className = 'faq-item';
+  item.innerHTML = `
+    <div class="faq-q"><span>${f.q}</span><span class="plus">+</span></div>
+    <div class="faq-a"><p>${f.a}</p></div>`;
+  faqListEl.appendChild(item);
+
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    faqListEl.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+const overlay = document.getElementById('overlay');
+
+function closeMobileNav(){
+  hamburgerBtn.classList.remove('active');
+  mobileNav.classList.remove('open');
+  overlay.classList.remove('show');
+}
+hamburgerBtn.addEventListener('click', () => {
+  hamburgerBtn.classList.toggle('active');
+  mobileNav.classList.toggle('open');
+  overlay.classList.toggle('show');
+});
+overlay.addEventListener('click', closeMobileNav);
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileNav));
+
+/* =========================================================
+   SCROLL ANIMATIONS
+========================================================= */
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => observer.observe(el));
+
+/* =========================================================
+   ENROLLMENT MODAL
+========================================================= */
+const modalOverlay = document.getElementById('modalOverlay');
+const modalClose = document.getElementById('modalClose');
+const openTriggers = document.querySelectorAll('.open-modal-trigger');
+const formView = document.getElementById('formView');
+const formSuccess = document.getElementById('formSuccess');
+const enrollForm = document.getElementById('enrollForm');
+const successClose = document.getElementById('successClose');
+
+function openModal(e){
+  if(e) e.preventDefault();
+  modalOverlay.classList.add('show');
+  formView.style.display = 'block';
+  formSuccess.classList.remove('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  modalOverlay.classList.remove('show');
+  document.body.style.overflow = '';
+}
+openTriggers.forEach(btn => btn.addEventListener('click', openModal));
+modalClose.addEventListener('click', closeModal);
+successClose.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', (e) => { if(e.target === modalOverlay) closeModal(); });
+
+/* =========================================================
+   RAZORPAY CHECKOUT INTEGRATION
+========================================================= */
+const payBtn = document.getElementById('payBtn');
+const modalError = document.getElementById('modalError');
+
+let razorpayKeyId = null; // fetched once from the backend, cached for reuse
+
+function showModalError(message){
+  modalError.textContent = message;
+  modalError.style.display = 'block';
+}
+function clearModalError(){
+  modalError.style.display = 'none';
+  modalError.textContent = '';
+}
+function setPayBtnLoading(isLoading){
+  payBtn.disabled = isLoading;
+  payBtn.textContent = isLoading ? 'Processing…' : 'Proceed to Payment';
+}
+
+// Converts a CONFIG price string like "₹2,999" into an integer amount in paise.
+function coursePriceToPaise(priceString){
+  const rupees = parseInt(String(priceString).replace(/[^\d]/g, ''), 10) || 0;
+  return rupees * 100;
+}
+
+async function getRazorpayKeyId(){
+  if (razorpayKeyId) return razorpayKeyId;
+  const res = await fetch('/api/config');
+  if (!res.ok) throw new Error('Could not load payment configuration.');
+  const data = await res.json();
+  razorpayKeyId = data.key_id;
+  return razorpayKeyId;
+}
+
+enrollForm.addEventListener('submit', async function(e){
+  e.preventDefault();
+  clearModalError();
+
+  const fullName = document.getElementById('fullName').value.trim();
+  const phoneNum = document.getElementById('phoneNum').value.trim();
+  const emailAddr = document.getElementById('emailAddr').value.trim();
+
+  if(!fullName || !phoneNum || !emailAddr){
+    showModalError('Please fill in all fields before proceeding.');
+    return;
+  }
+
+  setPayBtnLoading(true);
+
+  try {
+    const keyId = await getRazorpayKeyId();
+    const amountInPaise = coursePriceToPaise(CONFIG.coursePrice);
+
+    // STEP 1: create the order on the backend
+    const orderRes = await fetch('/api/create-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: amountInPaise,
+        currency: 'INR',
+        receipt: 'enroll_' + Date.now()
+      })
+    });
+    const orderData = await orderRes.json();
+
+    if(!orderRes.ok || !orderData.success){
+      throw new Error(orderData.error || 'Could not start payment. Please try again.');
+    }
+
+    // STEP 2: open Razorpay Standard Checkout with the order_id
+    const options = {
+      key: keyId,
+      amount: orderData.amount,
+      currency: orderData.currency,
+      name: CONFIG.businessName,
+      description: CONFIG.courseName,
+      order_id: orderData.order_id,
+      prefill: {
+        name: fullName,
+        email: emailAddr,
+        contact: phoneNum
+      },
+      theme: { color: '#6e1428' },
+      handler: async function (response){
+        // STEP 3: verify the payment signature on the backend
+        try {
+          const verifyRes = await fetch('/api/verify-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature
+            })
+          });
+          const verifyData = await verifyRes.json();
+
+          if(verifyRes.ok && verifyData.success){
+            formView.style.display = 'none';
+            formSuccess.classList.add('show');
+          } else {
+            showModalError('Payment could not be verified. If any amount was deducted, please contact us with your payment ID: ' + response.razorpay_payment_id);
+          }
+        } catch (err){
+          showModalError('Payment verification failed. Please contact us with your payment ID: ' + response.razorpay_payment_id);
+        } finally {
+          setPayBtnLoading(false);
+        }
+      },
+      modal: {
+        ondismiss: function(){
+          // User closed the checkout modal without paying
+          setPayBtnLoading(false);
+          showModalError('Payment was cancelled. You can try again anytime.');
+        }
+      }
+    };
+
+    const rzp = new Razorpay(options);
+
+    rzp.on('payment.failed', function (response){
+      setPayBtnLoading(false);
+      const desc = response && response.error && response.error.description
+        ? response.error.description
+        : 'Payment failed. Please try again.';
+      showModalError(desc);
+    });
+
+    rzp.open();
+    // Note: setPayBtnLoading(false) is intentionally not called here immediately —
+    // it happens in handler / payment.failed / ondismiss above once we know the outcome.
+  } catch (err){
+    setPayBtnLoading(false);
+    showModalError(err.message || 'Something went wrong. Please try again.');
+  }
+});
+
+/* =========================================================
+   HEADER SHADOW ON SCROLL (subtle)
+========================================================= */
+const headerEl = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 40){
+    headerEl.style.boxShadow = '0 8px 24px rgba(0,0,0,0.25)';
+  } else {
+    headerEl.style.boxShadow = 'none';
+  }
+});
+</script>
+</body>
+</html>
