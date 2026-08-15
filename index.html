@@ -869,9 +869,10 @@ The training is designed for beginners as well as learners who want to improve t
 
     <div class="form-success" id="formSuccess">
       <div class="tick">✓</div>
-      <h3>Details Received!</h3>
-      <p class="sub">Thank you! Our team will reach out shortly to confirm your enrollment and share payment details.</p>
-      <button class="btn btn-gold btn-block" id="successClose">Close</button>
+      <h3>Payment Successful!</h3>
+      <p class="sub">Welcome aboard! Redirecting you to our WhatsApp group in a few seconds…</p>
+      <a class="btn btn-gold btn-block" id="joinCommunityBtn" href="#" target="_blank" rel="noopener">Join WhatsApp Group Now</a>
+      <button class="btn btn-outline btn-block" id="successClose" style="margin-top:12px; border-color:var(--wine); color:var(--wine);">Close</button>
     </div>
   </div>
 </div>
@@ -890,6 +891,7 @@ const CONFIG = {
   courseDuration: "3 hours (Self-Paced + Live Sessions)",
   phone: "+91 97906 80753",
   whatsapp: "+91 97906 80753",
+  whatsappCommunity: "https://chat.whatsapp.com/C1wZTrkFMW27Iq1YluAdnC?s=cl&p=a&ilr=0",
   instagram: "@sk_naturals_beauty_parlour",
   email: "saralanawin@gmail.com",
 
@@ -1165,6 +1167,16 @@ enrollForm.addEventListener('submit', async function(e){
           if(verifyRes.ok && verifyData.success){
             formView.style.display = 'none';
             formSuccess.classList.add('show');
+
+            const joinBtn = document.getElementById('joinCommunityBtn');
+            joinBtn.href = CONFIG.whatsappCommunity;
+
+            // Auto-redirect to the WhatsApp group after a short delay.
+            // The button above also works immediately as a manual fallback
+            // in case the browser blocks the automatic redirect.
+            setTimeout(function(){
+              window.location.href = CONFIG.whatsappCommunity;
+            }, 3000);
           } else {
             showModalError('Payment could not be verified. If any amount was deducted, please contact us with your payment ID: ' + response.razorpay_payment_id);
           }
